@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Employer extends Model
+{
+    /** @use HasFactory<\Database\Factories\EmployerFactory> */
+    use HasFactory;
+    protected $fillable = [
+        'employer_name',
+        'employer_email',
+        'employer_logo',
+        'employer_phone',
+        'industry',
+        'location',
+        'description',
+        'website',
+        'phone',
+    ];
+
+    public function tours()
+    {
+        return $this->hasMany(Tour::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+}
